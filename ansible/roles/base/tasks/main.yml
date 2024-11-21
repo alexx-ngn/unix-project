@@ -1,0 +1,25 @@
+    - name: Upgrade distribution
+      apt: update_cache=yes upgrade=yes cache_valid_time=1800
+    
+    - name: Install base packages
+      apt: pkg={{ item }} state=latest
+      with_items:
+        - sudo
+        - curl
+        - tree
+        - htop
+        - btop
+        - vim
+        - wget
+        - tmux
+        - zip
+        - unzip
+        - apt-transport-https
+        - ca-certificates
+        - gnupg
+        - gzip
+        - bzip2
+        - xz-utils
+        - nmap
+        - tar
+        - magic-wormhole

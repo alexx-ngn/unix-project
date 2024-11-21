@@ -1,0 +1,20 @@
+- name: Configure sshd
+  lineinfile:
+    path: "/etc/ssh/sshd_config"
+    regex: "^(#)?{{item.key}}"
+    line: "{{item.key}} {{item.value}}"
+    state: present
+  loop:
+    - { key: "PermitRootLogin", value: "no" }
+    - { key: "PasswordAuthentication", value: "no" } 
+
+- name: Restart ssh server
+  ansible.builtin.service:
+    name: ssh
+    state: restarted
+
+- name: Set authorized keys taken from url using lookup
+  ansible.posix.authorized_key:
+    user: alex
+    state: present
+    key: "{{ lookup('url', 'https://github.com/alexx-ngn.keys', split_lines=False) }}"

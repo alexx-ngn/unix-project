@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes
+  connection: local
+  roles:
+    - role: base
+      tags: "base"
+    - role: ufw
+      tags: "ufw"
+    - role: ssh
+      tags: "ssh"
+    - role: docker
+      tags: "docker"
