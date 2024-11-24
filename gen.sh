@@ -11,6 +11,8 @@ mkdir -p $OUT
 7z x -o$WD $ISO -y
 
 cp preseed.cfg $WD
+cp post-install.sh $WD
+cp post-install.service $WD
 cd $WD
 
 sed -i '35s/---/preseed\/file=\/cdrom\/preseed.cfg auto=true priority=critical ---/' $WD/boot/grub/grub.cfg
