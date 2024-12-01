@@ -2,7 +2,7 @@ services:
   wg-easy:
     environment:
       - LANG=en
-      - WG_HOST=alexserver
+      - WG_HOST=alexx-ngn.duckdns.org
     image: ghcr.io/wg-easy/wg-easy
     container_name: wg-easy
     volumes:

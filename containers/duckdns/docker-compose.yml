@@ -1,0 +1,17 @@
+---
+services:
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns
+    network_mode: host #optional
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+      - TZ=America/Toronto #optional
+      - SUBDOMAINS=alexx-ngn
+      - TOKEN=569f35d4-0243-41e4-8226-4b3926302ff3
+      - UPDATE_IP=ipv4 #optional
+      - LOG_FILE=true #optional
+    volumes:
+      - ./config:/config #optional
+    restart: unless-stopped
