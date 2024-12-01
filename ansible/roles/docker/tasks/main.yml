@@ -52,6 +52,11 @@
         groups: docker
         append: yes
 
+    - name: Tear down existing services
+      community.docker.docker_compose_v2:
+        project_src: /home/alex/unix-project/containers
+        state: absent
+
     - name: Create and start services
       community.docker.docker_compose_v2:
         project_src: /home/alex/unix-project/containers
