@@ -4,12 +4,14 @@ An autonomous installation and configuration solution for reproducible server en
 - Fully Autonomous Installation: Complete hands-off server deployment without user intervention
 - Idempotent Operations: Repeatable deployments that maintain system consistency
 - Automated ISO Configuration: Bash script for automated installer ISO generation
-- Container Monitoring: Crash detection and logging system for Docker containers
 - Flexible Deployment: Works across different hardware configurations (VM or bare metal)
-- Docker Container Integration: Pre-configured services including:
-  - Nginx
-  - Wireguard
-  - Additional services (TBD)
+- Automatic Backups: Daily backups of containers
+- Firewall: Simple firewall configuration with UFW
+- Docker Container Applications:
+  - code-server
+  - duckdns
+  - watchtower
+  - wireguard
 
 ## Prerequisites
 - Debian
@@ -27,13 +29,19 @@ Selected over LXC for its:
 - Broader community support
 - Extensive pre-built container availability
 
-## Usage (Documentation will be added as development progresses)
+## Usage
 ### ISO creation
 ```
 git clone https://github.com/alexx-ngn/unix-project
 bash gen.sh $PATH_TO_DEBIAN_ISO
 ```
 The newly generated ISO file is located in the `out` folder
+
+### Running Ansible Operations
+```
+sudo ansible-playbook unix-project/ansible/playbook.yml
+```
+This will run all of the ansible roles.
 
 ## Contributing
 This is a personal academic project, but suggestions and feedback are welcome through issues.

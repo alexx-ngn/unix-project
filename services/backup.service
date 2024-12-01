@@ -1,0 +1,7 @@
+[Unit]
+Description=backup
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/bin/tar -czf /home/alex/backups/containers-$(date --iso-8601).tar.gz /home/alex/unix-project/containers'
+WorkingDirectory=/home/alex/unix-project
