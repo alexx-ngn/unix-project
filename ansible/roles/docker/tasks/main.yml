@@ -32,7 +32,7 @@
         name: docker-ce
         state: latest
         update_cache: true
-    
+
     - name: install python dependencies
       become: true
       apt:
@@ -53,6 +53,6 @@
         append: yes
 
     - name: Create and start services
-      community.general.docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /home/alex/unix-project/containers
       register: output

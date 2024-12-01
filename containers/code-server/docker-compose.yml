@@ -9,4 +9,5 @@ services:
       - TZ=America/Toronto
     volumes:
       - ./config:/config
+    network_mode: "host"
     restart: unless-stopped
