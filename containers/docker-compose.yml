@@ -1,0 +1,4 @@
+include:
+  - watchtower/docker-compose.yml
+  - code-server/docker-compose.yml
+  - wg-easy/docker-compose.yml
